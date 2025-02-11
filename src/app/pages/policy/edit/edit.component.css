@@ -1,0 +1,16 @@
+.tab-content {
+    padding: 20px;
+  }
+  
+  .submit-button {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  button {
+    margin: 5px;
+  }
+  
+  mat-tab-group {
+    margin: 20px;
+  }

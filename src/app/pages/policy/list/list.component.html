@@ -1,0 +1,30 @@
+<div class="policy-list-container">
+  <h2>Policy List</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Policy Number</th>
+        <th>Policy Status</th>
+        <th>Policy Type</th>
+        <th>Effective Date</th>
+        <th>Expiration Date</th>
+        <th>Policy Holder</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let policy of policies">
+        <td>{{ policy.policy_no }}</td>
+        <td>{{ policy.policy_status }}</td>
+        <td>{{ policy.policy_type }}</td>
+        <td>{{ policy.policy_effective_date }}</td>
+        <td>{{ policy.policy_expiration_date }}</td>
+        <td>{{ policy.policy_holder?.first_name }} {{ policy.policy_holder?.last_name }}</td>
+        <td>
+          <button (click)="editPolicy(policy.id)">Edit</button>
+          <button (click)="deletePolicy(policy.id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

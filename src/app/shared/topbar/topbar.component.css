@@ -1,0 +1,28 @@
+/* top-bar.component.css */
+.app-name {
+    font-size: 24px;
+    font-weight: bold;
+    margin-left: 16px;
+  }
+  
+  mat-toolbar {
+    width: 100%;
+    padding: 0 16px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  nav mat-tab-nav-bar {
+    margin-left: auto;
+  }
+  
+  a.mat-tab-link {
+    color: #fff;
+    text-decoration: none;
+    margin-right: 8px;
+    margin-left: 8px;
+  }
+  
+  
+  a.mat-tab-link.active {
+    color: #03A9F4;
+  }

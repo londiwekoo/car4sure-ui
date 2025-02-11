@@ -1,0 +1,201 @@
+<form [formGroup]="policyForm" (ngSubmit)="onSubmit()">
+    <mat-tab-group (selectedIndexChange)="onTabChange($event)">
+    <mat-tab label="Policy Details">
+      <div class="tab-content">
+        <h2>Policy Details</h2>
+        <div>
+          <label>Policy Number:</label>
+          <input formControlName="policyNo" />
+        </div>
+        <div>
+          <label>Policy Status:</label>
+          <input formControlName="policyStatus" />
+        </div>
+        <div>
+          <label>Policy Type:</label>
+          <input formControlName="policyType" />
+        </div>
+        <div>
+          <label>Effective Date:</label>
+          <input type="date" formControlName="policyEffectiveDate" />
+        </div>
+        <div>
+          <label>Expiration Date:</label>
+          <input type="date" formControlName="policyExpirationDate" />
+        </div>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Policy Holder">
+      <div class="tab-content" formGroupName="policyHolder">
+        <h2>Policy Holder</h2>
+        <div>
+          <label>First Name:</label>
+          <input formControlName="firstName" />
+        </div>
+        <div>
+          <label>Last Name:</label>
+          <input formControlName="lastName" />
+        </div>
+        <div formGroupName="address">
+          <h3>Address</h3>
+          <div>
+            <label>Street:</label>
+            <input formControlName="street" />
+          </div>
+          <div>
+            <label>City:</label>
+            <input formControlName="city" />
+          </div>
+          <div>
+            <label>State:</label>
+            <input formControlName="state" />
+          </div>
+          <div>
+            <label>Zip:</label>
+            <input formControlName="zip" />
+          </div>
+        </div>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Drivers">
+      <div class="tab-content" formArrayName="drivers">
+        <h2>Drivers</h2>
+        <div *ngFor="let driver of drivers.controls; let i = index" [formGroupName]="i">
+          <h3>Driver {{ i + 1 }}</h3>
+          <div>
+            <label>First Name:</label>
+            <input formControlName="firstName" />
+          </div>
+          <div>
+            <label>Last Name:</label>
+            <input formControlName="lastName" />
+          </div>
+          <div>
+            <label>Age:</label>
+            <input type="number" formControlName="age" />
+          </div>
+          <div>
+            <label>Gender:</label>
+            <input formControlName="gender" />
+          </div>
+          <div>
+            <label>Marital Status:</label>
+            <input formControlName="maritalStatus" />
+          </div>
+          <div>
+            <label>License Number:</label>
+            <input formControlName="licenseNumber" />
+          </div>
+          <div>
+            <label>License State:</label>
+            <input formControlName="licenseState" />
+          </div>
+          <div>
+            <label>License Status:</label>
+            <input formControlName="licenseStatus" />
+          </div>
+          <div>
+            <label>License Effective Date:</label>
+            <input type="date" formControlName="licenseEffectiveDate" />
+          </div>
+          <div>
+            <label>License Expiration Date:</label>
+            <input type="date" formControlName="licenseExpirationDate" />
+          </div>
+          <div>
+            <label>License Class:</label>
+            <input formControlName="licenseClass" />
+          </div>
+        </div>
+        <button type="button" (click)="addDriver()">Add Driver</button>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Vehicles">
+      <div class="tab-content" formArrayName="vehicles">
+        <h2>Vehicles</h2>
+        <div *ngFor="let vehicle of vehicles.controls; let i = index" [formGroupName]="i">
+          <h3>Vehicle {{ i + 1 }}</h3>
+          <div>
+            <label>Year:</label>
+            <input type="number" formControlName="year" />
+          </div>
+          <div>
+            <label>Make:</label>
+            <input formControlName="make" />
+          </div>
+          <div>
+            <label>Model:</label>
+            <input formControlName="model" />
+          </div>
+          <div>
+            <label>VIN:</label>
+            <input formControlName="vin" />
+          </div>
+          <div>
+            <label>Usage:</label>
+            <input formControlName="usage" />
+          </div>
+          <div>
+            <label>Primary Use:</label>
+            <input formControlName="primaryUse" />
+          </div>
+          <div>
+            <label>Annual Mileage:</label>
+            <input type="number" formControlName="annualMileage" />
+          </div>
+          <div>
+            <label>Ownership:</label>
+            <input formControlName="ownership" />
+          </div>
+          <div formGroupName="garagingAddress">
+            <h4>Garaging Address</h4>
+            <div>
+              <label>Street:</label>
+              <input formControlName="street" />
+            </div>
+            <div>
+              <label>City:</label>
+              <input formControlName="city" />
+            </div>
+            <div>
+              <label>State:</label>
+              <input formControlName="state" />
+            </div>
+            <div>
+              <label>Zip:</label>
+              <input formControlName="zip" />
+            </div>
+          </div>
+
+          <div formArrayName="coverages">
+            <h4>Coverages</h4>
+            <div *ngFor="let coverage of getCoverages(i).controls; let j = index" [formGroupName]="j">
+              <h5>Coverage {{ j + 1 }}</h5>
+              <div>
+                <label>Type:</label>
+                <input formControlName="type" />
+              </div>
+              <div>
+                <label>Limit:</label>
+                <input type="number" formControlName="limit" />
+              </div>
+              <div>
+                <label>Deductible:</label>
+                <input type="number" formControlName="deductible" />
+              </div>
+            </div>
+            <button type="button" (click)="addCoverage(i)">Add Coverage</button>
+          </div>
+        </div>
+        <button type="button" (click)="addVehicle()">Add Vehicle</button>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+
+  <div class="submit-button">
+    <button type="submit" [disabled]="!allTabsVisited">Create Policy</button>
+  </div>
+</form>

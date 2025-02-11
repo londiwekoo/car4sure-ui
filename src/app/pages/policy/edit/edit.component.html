@@ -1,0 +1,276 @@
+<form [formGroup]="policyForm" (ngSubmit)="onSubmit()">
+    <mat-tab-group>
+  
+      <mat-tab label="Policy Details">
+        <div class="tab-content">
+          <h2>Policy Details</h2>
+          <div>
+            <mat-form-field appearance="fill">
+              <mat-label>Policy Number</mat-label>
+              <input matInput formControlName="policyNo" />
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field appearance="fill">
+              <mat-label>Policy Status</mat-label>
+              <input matInput formControlName="policyStatus" />
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field appearance="fill">
+              <mat-label>Policy Type</mat-label>
+              <input matInput formControlName="policyType" />
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field appearance="fill">
+              <mat-label>Effective Date</mat-label>
+              <input matInput type="date" formControlName="policyEffectiveDate" />
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field appearance="fill">
+              <mat-label>Expiration Date</mat-label>
+              <input matInput type="date" formControlName="policyExpirationDate" />
+            </mat-form-field>
+          </div>
+        </div>
+      </mat-tab>
+
+      <mat-tab label="Policy Holder">
+        <div class="tab-content" formGroupName="policyHolder">
+          <h2>Policy Holder</h2>
+          <div>
+            <mat-form-field appearance="fill">
+              <mat-label>First Name</mat-label>
+              <input matInput formControlName="firstName" />
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field appearance="fill">
+              <mat-label>Last Name</mat-label>
+              <input matInput formControlName="lastName" />
+            </mat-form-field>
+          </div>
+          <div formGroupName="address">
+            <h3>Address</h3>
+            <div>
+              <mat-form-field appearance="fill">
+                <mat-label>Street</mat-label>
+                <input matInput formControlName="street" />
+              </mat-form-field>
+            </div>
+            <div>
+              <mat-form-field appearance="fill">
+                <mat-label>City</mat-label>
+                <input matInput formControlName="city" />
+              </mat-form-field>
+            </div>
+            <div>
+              <mat-form-field appearance="fill">
+                <mat-label>State</mat-label>
+                <input matInput formControlName="state" />
+              </mat-form-field>
+            </div>
+            <div>
+              <mat-form-field appearance="fill">
+                <mat-label>Zip</mat-label>
+                <input matInput formControlName="zip" />
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+      </mat-tab>
+  
+      <mat-tab label="Drivers">
+        <div class="tab-content" formArrayName="drivers">
+          <h2>Drivers</h2>
+          <div *ngFor="let driver of drivers.controls; let i = index" [formGroupName]="i">
+            <h3>Driver {{ i + 1 }}</h3>
+            <div>
+              <mat-form-field appearance="fill">
+                <mat-label>First Name</mat-label>
+                <input matInput formControlName="firstName" />
+              </mat-form-field>
+            </div>
+            <div>
+              <mat-form-field appearance="fill">
+                <mat-label>Last Name</mat-label>
+                <input matInput formControlName="lastName" />
+              </mat-form-field>
+            </div>
+            <div>
+              <mat-form-field appearance="fill">
+                <mat-label>Age</mat-label>
+                <input matInput type="number" formControlName="age" />
+              </mat-form-field>
+            </div>
+            <div>
+              <mat-form-field appearance="fill">
+                <mat-label>Gender</mat-label>
+                <input matInput formControlName="gender" />
+              </mat-form-field>
+            </div>
+            <div>
+              <mat-form-field appearance="fill">
+                <mat-label>Marital Status</mat-label>
+                <input matInput formControlName="maritalStatus" />
+              </mat-form-field>
+            </div>
+            <div>
+              <mat-form-field appearance="fill">
+                <mat-label>License Number</mat-label>
+                <input matInput formControlName="licenseNumber" />
+              </mat-form-field>
+            </div>
+            <div>
+              <mat-form-field appearance="fill">
+                <mat-label>License State</mat-label>
+                <input matInput formControlName="licenseState" />
+              </mat-form-field>
+            </div>
+            <div>
+              <mat-form-field appearance="fill">
+                <mat-label>License Status</mat-label>
+                <input matInput formControlName="licenseStatus" />
+              </mat-form-field>
+            </div>
+            <div>
+              <mat-form-field appearance="fill">
+                <mat-label>License Effective Date</mat-label>
+                <input matInput type="date" formControlName="licenseEffectiveDate" />
+              </mat-form-field>
+            </div>
+            <div>
+              <mat-form-field appearance="fill">
+                <mat-label>License Expiration Date</mat-label>
+                <input matInput type="date" formControlName="licenseExpirationDate" />
+              </mat-form-field>
+            </div>
+            <div>
+              <mat-form-field appearance="fill">
+                <mat-label>License Class</mat-label>
+                <input matInput formControlName="licenseClass" />
+              </mat-form-field>
+            </div>
+          </div>
+          <button mat-raised-button type="button" (click)="addDriver()">Add Driver</button>
+        </div>
+      </mat-tab>
+
+      <mat-tab label="Vehicles">
+        <div class="tab-content" formArrayName="vehicles">
+          <h2>Vehicles</h2>
+          <div *ngFor="let vehicle of vehicles.controls; let i = index" [formGroupName]="i">
+            <h3>Vehicle {{ i + 1 }}</h3>
+            <div>
+              <mat-form-field appearance="fill">
+                <mat-label>Year</mat-label>
+                <input matInput type="number" formControlName="year" />
+              </mat-form-field>
+            </div>
+            <div>
+              <mat-form-field appearance="fill">
+                <mat-label>Make</mat-label>
+                <input matInput formControlName="make" />
+              </mat-form-field>
+            </div>
+            <div>
+              <mat-form-field appearance="fill">
+                <mat-label>Model</mat-label>
+                <input matInput formControlName="model" />
+              </mat-form-field>
+            </div>
+            <div>
+              <mat-form-field appearance="fill">
+                <mat-label>VIN</mat-label>
+                <input matInput formControlName="vin" />
+              </mat-form-field>
+            </div>
+            <div>
+              <mat-form-field appearance="fill">
+                <mat-label>Usage</mat-label>
+                <input matInput formControlName="usage" />
+              </mat-form-field>
+            </div>
+            <div>
+              <mat-form-field appearance="fill">
+                <mat-label>Primary Use</mat-label>
+                <input matInput formControlName="primaryUse" />
+              </mat-form-field>
+            </div>
+            <div>
+              <mat-form-field appearance="fill">
+                <mat-label>Annual Mileage</mat-label>
+                <input matInput type="number" formControlName="annualMileage" />
+              </mat-form-field>
+            </div>
+            <div>
+              <mat-form-field appearance="fill">
+                <mat-label>Ownership</mat-label>
+                <input matInput formControlName="ownership" />
+              </mat-form-field>
+            </div>
+            <div formGroupName="garagingAddress">
+              <h4>Garaging Address</h4>
+              <div>
+                <mat-form-field appearance="fill">
+                  <mat-label>Street</mat-label>
+                  <input matInput formControlName="street" />
+                </mat-form-field>
+              </div>
+              <div>
+                <mat-form-field appearance="fill">
+                  <mat-label>City</mat-label>
+                  <input matInput formControlName="city" />
+                </mat-form-field>
+              </div>
+              <div>
+                <mat-form-field appearance="fill">
+                  <mat-label>State</mat-label>
+                  <input matInput formControlName="state" />
+                </mat-form-field>
+              </div>
+              <div>
+                <mat-form-field appearance="fill">
+                  <mat-label>Zip</mat-label>
+                  <input matInput formControlName="zip" />
+                </mat-form-field>
+              </div>
+            </div>
+  
+            <div formArrayName="coverages">
+              <h4>Coverages</h4>
+              <div *ngFor="let coverage of getCoverages(i).controls; let j = index" [formGroupName]="j">
+                <h5>Coverage {{ j + 1 }}</h5>
+                <div>
+                  <mat-form-field appearance="fill">
+                    <mat-label>Type</mat-label>
+                    <input matInput formControlName="type" />
+                  </mat-form-field>
+                </div>
+                <div>
+                  <mat-form-field appearance="fill">
+                    <mat-label>Limit</mat-label>
+                    <input matInput type="number" formControlName="limit" />
+                  </mat-form-field>
+                </div>
+                <div>
+                  <mat-form-field appearance="fill">
+                    <mat-label>Deductible</mat-label>
+                    <input matInput type="number" formControlName="deductible" />
+                  </mat-form-field>
+                </div>
+              </div>
+              <button mat-raised-button type="button" (click)="addCoverage(i)">Add Coverage</button>
+            </div>
+          </div>
+          <button mat-raised-button type="button" (click)="addVehicle()">Add Vehicle</button>
+        </div>
+      </mat-tab>
+    </mat-tab-group>
+
+    <div class="submit-button">
+      <button mat-raised-button color="primary" type="submit">Save Changes</button>
+    </div>
+  </form>

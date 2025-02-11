@@ -1,0 +1,72 @@
+.mat-tab-group {
+    background: #ffffff;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 10px;
+  }
+  
+  /* Improve tab header visibility */
+  .mat-tab-label {
+    font-weight: bold;
+    font-size: 16px;
+    text-transform: capitalize;
+    color: #333;
+  }
+  
+  .mat-tab-label-active {
+    color: #1976d2;
+    border-bottom: 3px solid #1976d2;
+  }
+  
+  /* Style tab content */
+  .tab-content {
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 5px;
+    margin-top: 10px;
+  }
+  
+  /* Style form inputs */
+  .tab-content input {
+    display: block;
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  /* Style labels */
+  .tab-content label {
+    font-weight: bold;
+    display: block;
+    margin-top: 10px;
+  }
+  
+  /* Buttons styling */
+  button {
+    background-color: #1976d2;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 15px;
+  }
+  
+  button:hover {
+    background-color: #1565c0;
+  }
+  
+  /* Disable submit button when conditions aren't met */
+  button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  /* Center submit button */
+  .submit-button {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
