@@ -1,27 +1,70 @@
-# Car4sureUi
+##Car4Sure 
+A full-stack insurance policy management system built with 
+**Laravel (PHP) for the backend
+** and **Angular for the frontend**.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.0.
+---
 
-## Development server
+##  Features
+- Manage Insurance Policies (CRUD)
+- Manage Policy Holders, Vehicles, and Drivers
+- RESTful API for external integrations
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Code scaffolding
+---
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Tech Stack
+- **Backend**: Laravel (PHP 8)
+- **Frontend**: Angular 16
+- **Database**: MySQL
+- **API Requests**: Axios (Frontend) & Postman (Testing)
 
-## Build
+---
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Installation & Setup
 
-## Running unit tests
+###Backend (Laravel)
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/londiwekoo/car4sure-server
+   cd car4sure-server
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Database Setup
 
-## Running end-to-end tests
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=car4sure
+DB_USERNAME=root
+DB_PASSWORD=
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
-## Further help
+## Create DB table Care4Sure- Server 
+Folder migrations 
+Run php artisan migrate 
+This command will create the tables in the DB
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Laravel server
+composer run dev 
+This will start laravel
+
+
+##Angular project 
+Git clone https://github.com/londiwekoo/car4sure-ui
+
+## start the development sever
+ng serve
+
+##API Documentation (Postman)
+
+##Import the Postman collection from the Car4Sure.postman_collection.jsonfile.
+
+##Endpoints
+
+##Policies
+
+	•	GET /api/policies - List all policies
+	•	POST /api/policies - Create a new policy
+	•	GET /api/policies/{id} - Get policy details
+	•	PUT /api/policies/{id} - Update a policy
+	•	DELETE /api/policies/{id} - Delete a policy
